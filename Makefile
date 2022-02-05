@@ -2,7 +2,7 @@ CXX=g++
 CXXFLAGS=-g -Wall -MMD -std=c++11
 BUILDDIR="build"
 EXPDIR="examples"
-BUILD=${BUILDDIR}/xlang
+BUILD=${BUILDDIR}/chlorine
 OBJFILES=src/analyze.o src/convert.o src/error.o src/insn.o src/lex.o src/main.o\
 	src/murmurhash2.o src/parser.o src/print.o src/regs.o src/symtab.o\
 	src/tree.o src/x86_gen.o src/optimize.o
@@ -53,14 +53,6 @@ src/x86_gen.o : src/x86_gen.cpp
 
 src/optimize.o : src/optimize.cpp
 	${CXX} -c ${CXXFLAGS} src/optimize.cpp -o $@
-
-install:
-	cp build/xlang /usr/bin/xlang
-	cp man/xlang.1 /usr/share/man/man1/xlang.1
-
-remove:
-	rm /usr/bin/xlang
-	rm /usr/share/man/man1/xlang.1
 
 cleanobj:
 	rm src/*.o src/*.d
