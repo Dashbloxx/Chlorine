@@ -1,4 +1,8 @@
 /*
+* CHLORINE => built off of xlang, which was made by Pritam Zope, edited
+* by https://github.com/Dashbloxx to add more features
+*/
+/*
 *  src/error.cpp
 *
 *  Copyright (C) 2019  Pritam Zope
@@ -21,6 +25,7 @@ namespace xlang
 
 void xlang::error::print_error(std::string err_msg)
 {
+  xlang::print::print_white_bold_text("chlorine: ");
   xlang::print::print_red_bold_text("error: ");
   std::cout<<err_msg<<std::endl;
   xlang::error_count++;
@@ -28,6 +33,7 @@ void xlang::error::print_error(std::string err_msg)
 
 void xlang::error::print_error(std::string filename, std::string err_msg)
 {
+  xlang::print::print_white_bold_text("chlorine: ");
   xlang::print::print_white_bold_text(filename);
   xlang::print::print_white_bold_text(":");
   xlang::print::print_red_bold_text(" error: ");
